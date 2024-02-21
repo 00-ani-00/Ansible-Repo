@@ -10,6 +10,12 @@
 
     - name: Create index.html file
       template:
-        src: index.html
+        src: index.html  # This is the template file
         dest: /usr/share/nginx/html/index.html
       notify: Restart Nginx
+
+  handlers:
+    - name: Restart Nginx
+      service:
+        name: nginx
+        state: restarted
