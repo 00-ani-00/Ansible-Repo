@@ -1,0 +1,15 @@
+---
+- name: Configure Nginx and Write to index.html
+  hosts: all
+  become: true
+  tasks:
+    - name: Install Nginx package
+      package:
+        name: nginx
+        state: present
+
+    - name: Create index.html file
+      template:
+        src: index.html
+        dest: /usr/share/nginx/html/index.html
+      notify: Restart Nginx
