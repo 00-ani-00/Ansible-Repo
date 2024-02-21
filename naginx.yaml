@@ -6,16 +6,16 @@
     - name: Install Nginx package
       package:
         name: nginx
-        state: present
+        state: absent 
 
-    - name: Create index.html file
-      template:
-        src: index.html.j2  # This is the template file
-        dest: /usr/share/nginx/html/index.html
-      notify: Restart Nginx
+  #   - name: Create index.html file
+  #     template:
+  #       src: index.html.j2  # This is the template file
+  #       dest: /usr/share/nginx/html/index.html
+  #     notify: Restart Nginx
 
-  handlers:
-    - name: Restart Nginx
-      service:
-        name: nginx
-        state: restarted
+  # handlers:
+  #   - name: Restart Nginx
+  #     service:
+  #       name: nginx
+  #       state: restarted
